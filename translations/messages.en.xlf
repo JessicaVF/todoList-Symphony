@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="QDu1yJp" resname="bienvenue">
+        <source>bienvenue</source>
+        <target>Welcome</target>
+      </trans-unit>
+      <trans-unit id="iAkgLAg" resname="deconnexion">
+        <source>deconnexion</source>
+        <target>logout</target>
+      </trans-unit>
+      <trans-unit id="p_SgOoc" resname="ajouterToDo">
+        <source>ajouterToDo</source>
+        <target>Add To Do</target>
+      </trans-unit>
+      <trans-unit id="PyM2XZR" resname="plusRecent">
+        <source>plusRecent</source>
+        <target>order by: the most recent</target>
+      </trans-unit>
+      <trans-unit id="u4xpkmG" resname="ancienne">
+        <source>ancienne</source>
+        <target>order by: oldest</target>
+      </trans-unit>
+      <trans-unit id="_dN8I.z" resname="urgent">
+        <source>urgent</source>
+        <target>order by: urgent</target>
+      </trans-unit>
+      <trans-unit id="h15uwoj" resname="moinsUrgent">
+        <source>moinsUrgent</source>
+        <target>order by: least urgent</target>
+      </trans-unit>
+      <trans-unit id="NuLqDgi" resname="jusquAu">
+        <source>jusquAu</source>
+        <target>you have until the:</target>
+      </trans-unit>
+      <trans-unit id="xo5DJxz" resname="pourFaire">
+        <source>pourFaire</source>
+        <target>to do :</target>
+      </trans-unit>
+      <trans-unit id="w49a3mF" resname="ajouteLe">
+        <source>ajouteLe</source>
+        <target>added on :</target>
+      </trans-unit>
+      <trans-unit id="YFp51px" resname="suppToDo">
+        <source>suppToDo</source>
+        <target>delete this To Do</target>
+      </trans-unit>
+      <trans-unit id="tUKhz_F" resname="connexion">
+        <source>connexion</source>
+        <target>login</target>
+      </trans-unit>
+      <trans-unit id="0FXVX5p" resname="nomUtilisateur">
+        <source>nomUtilisateur</source>
+        <target>username</target>
+      </trans-unit>
+      <trans-unit id="80fYFpr" resname="motPasse">
+        <source>motPasse</source>
+        <target>password</target>
+      </trans-unit>
+      <trans-unit id="GuGIgR_" resname="inscription">
+        <source>inscription</source>
+        <target>sign up</target>
+      </trans-unit>
+      <trans-unit id="ii3zIJX" resname="anciennes">
+        <source>anciennes</source>
+        <target>__anciennes</target>
+      </trans-unit>
+      <trans-unit id="rbBXlep" resname="envoyer">
+        <source>envoyer</source>
+        <target>submit</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

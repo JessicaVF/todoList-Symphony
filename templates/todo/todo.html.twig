@@ -1,8 +1,45 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Bienvenue !{% endblock %}
+{% block title %} {{ 'bienvenue' |trans  }} !{% endblock %}
 
 {% block body %}
-    <a class="btn btn-danger" href="{{ path('logout')}}">déconnexion </a>
+    <a class="btn btn-danger m-2" href="{{ path('logout')}}">{{ 'deconnexion' |trans }} </a>
+    <br>
+    <br>
+    <a class="btn btn-primary m-2" href="{{ path('todo_create')}}"> {{ 'ajouterToDo' |trans }} </a>
 
+    <hr>
+
+    <a class="btn btn-secondary" href="{{ path('orderBy', {task: 'mostRecent'}) }}"> {{ 'plusRecent' |trans }}  </a>
+    <a class="btn btn-secondary" href="{{ path('orderBy', {task: 'oldest'}) }}"> {{ 'ancienne'|trans}}  </a>
+    <a class="btn btn-dark" href="{{ path('orderBy', {task: 'urgent'}) }}"> {{ 'urgent'|trans }} </a>
+    <a class="btn btn-dark" href="{{ path('orderBy', {task: 'leastUrgent'}) }}"> {{ 'moinsUrgent'|trans }} </a>
+    <div class="row m-2">
+
+    {% for todo in todos %}
+
+
+        <div class="card border-primary mb-3
+        {% if todo.dueDate < date()  %}
+            bg-danger
+        {% endif %}
+        "
+             style="max-width: 18rem;">
+            <div class="card-header bg-white"><span class="badge bg-info text-dark">{{ todo.user.username }} </span> {{ 'jusquAu' |trans }}
+            <h2 class="card-title">{{ todo.dueDate |date('d-m-Y') }}</h2>
+                {{ 'pourFaire' |trans }}
+            </div>
+            <div class="card-body bg-warning">
+                <p class="card-text">{{ todo.description}}</p>
+
+            </div>
+            <p class="text-white bg-dark">{{ 'ajouteLe' |trans }} {{ todo.createdAt |date('d-m-Y') }}</p>
+            <a href="{{ path('delete_todo', {id: todo.id}) }}"> {{ 'suppToDo' |trans }}</a>
+        </div>
+
+    {% endfor %}
+        <div class="d-flex justify-content-center">
+            {{ knp_pagination_render(todos, '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig') }}
+        </div>
+    </div>
 {% endblock %}

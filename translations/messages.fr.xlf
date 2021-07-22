@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="QDu1yJp" resname="bienvenue">
+        <source>bienvenue</source>
+        <target>bienvenue</target>
+      </trans-unit>
+      <trans-unit id="iAkgLAg" resname="deconnexion">
+        <source>deconnexion</source>
+        <target>déconnexion</target>
+      </trans-unit>
+      <trans-unit id="p_SgOoc" resname="ajouterToDo">
+        <source>ajouterToDo</source>
+        <target>ajouter To Do</target>
+      </trans-unit>
+      <trans-unit id="PyM2XZR" resname="plusRecent">
+        <source>plusRecent</source>
+        <target>plus recent</target>
+      </trans-unit>
+      <trans-unit id="u4xpkmG" resname="ancienne">
+        <source>ancienne</source>
+        <target>plus ancienne</target>
+      </trans-unit>
+      <trans-unit id="_dN8I.z" resname="urgent">
+        <source>urgent</source>
+        <target>urgent</target>
+      </trans-unit>
+      <trans-unit id="h15uwoj" resname="moinsUrgent">
+        <source>moinsUrgent</source>
+        <target>moins urgent</target>
+      </trans-unit>
+      <trans-unit id="NuLqDgi" resname="jusquAu">
+        <source>jusquAu</source>
+        <target>vous avez jusqu'au :</target>
+      </trans-unit>
+      <trans-unit id="xo5DJxz" resname="pourFaire">
+        <source>pourFaire</source>
+        <target>pour faire :</target>
+      </trans-unit>
+      <trans-unit id="w49a3mF" resname="ajouteLe">
+        <source>ajouteLe</source>
+        <target>ajouté le :</target>
+      </trans-unit>
+      <trans-unit id="YFp51px" resname="suppToDo">
+        <source>suppToDo</source>
+        <target>supprimer ce To Do</target>
+      </trans-unit>
+      <trans-unit id="tUKhz_F" resname="connexion">
+        <source>connexion</source>
+        <target>connexion</target>
+      </trans-unit>
+      <trans-unit id="0FXVX5p" resname="nomUtilisateur">
+        <source>nomUtilisateur</source>
+        <target>nom d'utilisateur</target>
+      </trans-unit>
+      <trans-unit id="80fYFpr" resname="motPasse">
+        <source>motPasse</source>
+        <target>mot de Passe</target>
+      </trans-unit>
+      <trans-unit id="GuGIgR_" resname="inscription">
+        <source>inscription</source>
+        <target>inscription</target>
+      </trans-unit>
+      <trans-unit id="rbBXlep" resname="envoyer">
+        <source>envoyer</source>
+        <target>envoyer</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
