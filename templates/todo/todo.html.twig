@@ -4,6 +4,10 @@
 
 {% block body %}
     <a class="btn btn-danger m-2" href="{{ path('logout')}}">{{ 'deconnexion' |trans }} </a>
+
+    {% if "ROLE_ADMIN" in user.getRoles %}
+        <a class="btn btn-success" href="{{ path('admin') }}"> Admin </a>
+    {% endif %}
     <br>
     <br>
     <a class="btn btn-primary m-2" href="{{ path('todo_create')}}"> {{ 'ajouterToDo' |trans }} </a>
@@ -14,6 +18,8 @@
     <a class="btn btn-secondary" href="{{ path('orderBy', {task: 'oldest'}) }}"> {{ 'ancienne'|trans}}  </a>
     <a class="btn btn-dark" href="{{ path('orderBy', {task: 'urgent'}) }}"> {{ 'urgent'|trans }} </a>
     <a class="btn btn-dark" href="{{ path('orderBy', {task: 'leastUrgent'}) }}"> {{ 'moinsUrgent'|trans }} </a>
+
+
     <div class="row m-2">
 
     {% for todo in todos %}

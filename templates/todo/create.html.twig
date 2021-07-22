@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% form_theme todoForm 'bootstrap_5_layout.html.twig' %}
+
+{% block body %}
+
+<div class="m-5">
+
+{{form_start(todoForm)}}
+
+<button type="submit"> AJouter le ToDo</button>
+{{form_end(todoForm)}}
+<br>
+<a href={{path('todo')}} class="btn btn-primary">Back to index</a>
+
+</div>
+
+{% endblock %}

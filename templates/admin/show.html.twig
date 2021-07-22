@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Admin!{% endblock %}
+
+{% block body %}
+    <div class="row m-5">
+
+    <div class="border">
+    <strong>username:</strong> {{ user.username }}
+    <br>
+    <strong>email:</strong> {{ user.email }}
+    <br>
+    <strong>roles:</strong>
+        <ul>
+            {% for rol in user.roles %}
+               <li>{{ rol}}</li>
+            {% endfor %}
+        </ul>
+
+        <hr>
+
+        {% for todo in todos %}
+            <div class="card border-primary mb-3
+        {% if todo.dueDate < date()  %}
+            bg-danger
+        {% endif %}
+        "
+                 style="max-width: 18rem;">
+                <div class="card-header bg-white"><span class="badge bg-info text-dark">{{ todo.user.username }} </span> {{ 'jusquAu' |trans }}
+                    <h2 class="card-title">{{ todo.dueDate |date('d-m-Y') }}</h2>
+                    {{ 'pourFaire' |trans }}
+                </div>
+                <div class="card-body bg-warning">
+                    <p class="card-text">{{ todo.description}}</p>
+
+                </div>
+                <p class="text-white bg-dark">{{ 'ajouteLe' |trans }} {{ todo.createdAt |date('d-m-Y') }}</p>
+                <a href="{{ path('delete_todo', {id: todo.id}) }}"> {{ 'suppToDo' |trans }}</a>
+            </div>
+
+        {% endfor %}
+
+        <a href="{{ path('delete_user', {id: user.id})}}" class="btn btn-danger">Supprimer le utilisateur</a>
+
+        <br>
+        <br>
+    </div>
+
+
+
+    </div>
+{% endblock %}
