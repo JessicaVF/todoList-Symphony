@@ -103,6 +103,7 @@ class TodoController extends AbstractController
              }
              $manager->flush();
 
+             json
              return $this->redirectToRoute('todo');
          }
 
