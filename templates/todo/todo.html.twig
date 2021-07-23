@@ -11,6 +11,7 @@
     <br>
     <br>
     <a class="btn btn-primary m-2" href="{{ path('todo_create')}}"> {{ 'ajouterToDo' |trans }} </a>
+    <h2>To Do a faire: {{ app.user.getChecks()|length}}  / {{ app.user.getTodos()|length}} </h2>
 
     <hr>
 
