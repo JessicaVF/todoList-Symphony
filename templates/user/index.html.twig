@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ 'connexion' | trans  }}{% endblock %}
+
+{% block body %}
+    <form method="POST">
+        <div class="form-group">
+            <label for="username" class="form-label">{{ 'nomUtilisateur' | trans  }}</label>
+            <input type="text" name="_username">
+        </div>
+        <div class="form-group">
+            <label for="password" class="form-label">{{ 'motPasse' | trans  }}</label>
+            <input type="password" name="_password">
+        </div>
+        <div class="form-group">
+            <input type="submit" value="{{ 'envoyer' | trans  }}">
+        </div>
+    </form>
+    <hr>
+
+    <a class="btn btn-success" href="{{ path('register')}}"> {{ 'inscription' | trans  }}</a>
+{% endblock %}

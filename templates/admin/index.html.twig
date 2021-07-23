@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Admin!{% endblock %}
+
+{% block body %}
+    <a href={{path('todo')}} class="btn btn-primary">Back to general index</a>
+    <div class="row m-5">
+{% for user in users %}
+    <div class="border">
+    <strong>username:</strong> {{ user.username }}
+    <br>
+    <strong>email:</strong> {{ user.email }}
+    <br>
+    <strong>roles:</strong><ul>
+        {% for rol in user.roles %}
+           <li>{{ rol}}</li>
+        {% endfor %}
+</ul>
+
+        <a href="{{ path('delete_user', {id: user.id})}}" class="btn btn-danger">Supprimer le utilisateur</a>
+        <a href="{{ path('show_user', {id: user.id})}}" class="btn btn-primary">voir les details</a>
+        <br>
+        <br>
+    </div>
+
+    <hr>
+{% endfor %}
+    </div>
+{% endblock %}

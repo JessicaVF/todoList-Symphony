@@ -31,6 +31,7 @@
         {% endif %}
         "
              style="max-width: 18rem;">
+
             <div class="card-header bg-white"><span class="badge bg-info text-dark">{{ todo.user.username }} </span> {{ 'jusquAu' |trans }}
             <h2 class="card-title">{{ todo.dueDate |date('d-m-Y') }}</h2>
                 {{ 'pourFaire' |trans }}
@@ -40,6 +41,13 @@
 
             </div>
             <p class="text-white bg-dark">{{ 'ajouteLe' |trans }} {{ todo.createdAt |date('d-m-Y') }}</p>
+            <a class="btn btn-success" href="{{ path('check', {id: todo.id}) }}">
+                {% if todo.checked %}
+                c'est fait
+                {% else %}
+                c'est pas fait
+                {% endif %}
+            </a>
             <a href="{{ path('delete_todo', {id: todo.id}) }}"> {{ 'suppToDo' |trans }}</a>
         </div>
 
