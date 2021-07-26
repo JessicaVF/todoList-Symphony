@@ -23,6 +23,7 @@
 
     <div class="row m-2">
 
+
     {% for todo in todos %}
 
 
@@ -42,12 +43,16 @@
 
             </div>
             <p class="text-white bg-dark">{{ 'ajouteLe' |trans }} {{ todo.createdAt |date('d-m-Y') }}</p>
-            <a class="btn btn-success" href="{{ path('check', {id: todo.id}) }}">
-                {% if todo.checked %}
-                c'est fait
-                {% else %}
-                c'est pas fait
-                {% endif %}
+            <a class="btn btn-success check" href="{{ path('check', {id: todo.id}) }}">
+
+
+                <span class="checked">
+                    {% if todo.checked %}
+                        c'est fait
+                    {% else %}
+                        c'est pas fait
+                    {% endif %}
+                </span>
             </a>
             <a href="{{ path('delete_todo', {id: todo.id}) }}"> {{ 'suppToDo' |trans }}</a>
         </div>
@@ -57,4 +62,42 @@
             {{ knp_pagination_render(todos, '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig') }}
         </div>
     </div>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+
+    function checked(event){
+        event.preventDefault();
+        let url = this.href;
+        let requeteAjax = new XMLHttpRequest();
+        requeteAjax.open('GET', url)
+        requeteAjax.onload = ()=> {
+
+            let data= JSON.parse(requeteAjax.responseText);
+            let msg = "";
+
+            if(data.message == 'checked') {
+                msg = "c'est fait";
+            }
+            else{
+                msg = "a faire";
+            }
+
+            this.querySelector('.checked').innerHTML =msg;
+
+        }
+        requeteAjax.send();
+    }
+    document.addEventListener('DOMContentLoaded', ()=>{
+
+        const checks =document.querySelectorAll('.check');
+
+        checks.forEach((btn)=>{
+
+            btn.addEventListener('click', checked)
+        })
+    })
+
+</script>
 {% endblock %}
