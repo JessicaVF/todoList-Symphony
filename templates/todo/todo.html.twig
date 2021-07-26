@@ -11,7 +11,10 @@
     <br>
     <br>
     <a class="btn btn-primary m-2" href="{{ path('todo_create')}}"> {{ 'ajouterToDo' |trans }} </a>
-    <h2>To Do a faire: {{ app.user.getChecks()|length}}  / {{ app.user.getTodos()|length}} </h2>
+    <h2>To Do deja fait: <span class="done"> {{ app.user.getChecks()|length}} </span> / {{ app.user.getTodos()|length}} </h2>
+
+
+
 
     <hr>
 
@@ -67,15 +70,26 @@
 {% block javascripts %}
 <script>
 
+    //the function we add to the btn with the Listener
+
     function checked(event){
+
+        // with stop the page to reload
         event.preventDefault();
+
+        // we recover the path of the object check to be able (that in the controller activate a function, but not
+        // redirect to a new page). We will use it to do our AJAX
+
         let url = this.href;
         let requeteAjax = new XMLHttpRequest();
         requeteAjax.open('GET', url)
         requeteAjax.onload = ()=> {
 
+            // here we decide what to do base in the JSON we got
+
             let data= JSON.parse(requeteAjax.responseText);
             let msg = "";
+            let dones = data.done;
 
             if(data.message == 'checked') {
                 msg = "c'est fait";
@@ -85,10 +99,13 @@
             }
 
             this.querySelector('.checked').innerHTML =msg;
+            const done = document.querySelector('.done');
+            done.innerHTML = dones;
 
         }
         requeteAjax.send();
     }
+    // Here we capture the btn and add the event listener
     document.addEventListener('DOMContentLoaded', ()=>{
 
         const checks =document.querySelectorAll('.check');
@@ -98,6 +115,12 @@
             btn.addEventListener('click', checked)
         })
     })
+
+
+
+
+
+
 
 </script>
 {% endblock %}

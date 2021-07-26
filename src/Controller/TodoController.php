@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Check;
 use App\Entity\Todo;
 use App\Form\TodoType;
+use App\Repository\CheckRepository;
 use App\Repository\TodoRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
@@ -90,7 +91,7 @@ class TodoController extends AbstractController
         /**
          * @Route("/todo/check/{id}", name="check")
          */
-         public function  check (Todo $todo, EntityManagerInterface $manager)
+         public function  check (Todo $todo, EntityManagerInterface $manager, CheckRepository $repositoryCheck)
          {
              if(!$todo->getChecked()) {
                  $check = new Check();
@@ -105,7 +106,12 @@ class TodoController extends AbstractController
              }
              $manager->flush();
 
-             $data = ['message'=>$message];
+             $done = $repositoryCheck->count(['user'=>$todo->getUser()]);
+
+
+             $data = ['message'=>$message, 'done'=>$done];
+
+
 
                return $this->json($data, 200);
            //return $this->redirectToRoute('todo');
